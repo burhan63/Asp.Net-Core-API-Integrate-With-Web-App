@@ -1,0 +1,95 @@
+﻿@model IEnumerable<CoreWebAppWithCrud.Models.Student>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Student List</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+@{
+    if (TempData["Insert_Message"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Success</strong> @TempData["Insert_Message"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+    if (TempData["Update_Message"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Success</strong> @TempData["Update_Message"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+    if (TempData["Delete_Message"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Danger</strong> @TempData["Delete_Message"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.stdId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.stdName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.stdFatherName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.stdRollNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.stdContact)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.stdCnic)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.stdId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.stdName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.stdFatherName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.stdRollNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.stdContact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.stdCnic)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.stdId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.stdId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.stdId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

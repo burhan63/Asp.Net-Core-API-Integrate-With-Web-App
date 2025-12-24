@@ -1,0 +1,63 @@
+﻿@model CoreWebAppWithCrud.Models.Student
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Student</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="stdId" class="control-label">Student ID</label>
+                <input asp-for="stdId" class="form-control" />
+                <span asp-validation-for="stdId" class="text-danger"></span>
+            </div> 
+            <div class="form-group">
+                <label asp-for="stdName" class="control-label">Student Name</label>
+                <input asp-for="stdName" class="form-control" />
+                <span asp-validation-for="stdName" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="stdFatherName" class="control-label">Student Father Name</label>
+                <input asp-for="stdFatherName" class="form-control" />
+                <span asp-validation-for="stdFatherName" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="stdRollNo" class="control-label">Student Roll#</label>
+                <input asp-for="stdRollNo" class="form-control" />
+                <span asp-validation-for="stdRollNo" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="stdContact" class="control-label">Student Contact</label>
+                <input asp-for="stdContact" class="form-control" />
+                <span asp-validation-for="stdContact" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="stdCnic" class="control-label">Student CNIC</label>
+                <input asp-for="stdCnic" class="form-control" />
+                <span asp-validation-for="stdCnic" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
